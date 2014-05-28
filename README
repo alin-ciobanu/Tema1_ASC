@@ -1,0 +1,20 @@
+    Tema 1 - Arhitectura Sitemeleor de Calcul
+            Facultatea de Automatica si Calculatoare
+            
+Student: Ciobanu Alin Emanuel
+Grupa: 332 CC
+Sistem de operare folosit: Linux Mint 15
+Versiune python: 2.7.4
+
+
+Explicatii si implementare
+------------------------------------
+Am inceput prin a scrie algoritmul care rezolva problema secvential, apoi l-am transformat pentru a rezolva problema cu thread-uri.
+Pentru fiecare operatie de put/get din datastore am creat o metoda in clasa Node care sa deschida un thread si sa puna/ia valoarea in/din datastore.
+Am folosit o coada pentru a pune elementele luate din datastore sau a semnaliza ca o operatie s-a efectual.
+Suplimentar, am folosit obiecte de tip condition pentru a semnaliza thread-urile intre ele.
+Nu am implementat pivotarea pentru a evita impartirea la zero.
+Nu imi trec toate testele. Unele dau rezultate gresite, nu stiu de ce.
+Am folosit un thread master care rezolva algoritmul si care este deschis de unul din noduri (ultimul nod in cazul meu).
+Thread-ul master apeleaza metodele de get si put din nod-uri pentru a deschide noi thread-uri si a comunica cu datastore-urile cu care are nevoie sa comunice.
+
